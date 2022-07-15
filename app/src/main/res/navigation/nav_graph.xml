@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentRate">
+    <fragment
+        android:id="@+id/fragmentApproval"
+        android:name="com.example.hamiltoncapital.fragment.FragmentApproval"
+        android:label="FragmentApproval" >
+        <action
+            android:id="@+id/action_fragmentApproval_to_fragmentSuccess"
+            app:destination="@id/fragmentSuccess" />
+        <argument
+            android:name="curreny1"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument android:name="currency2"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_fragmentApproval_to_fragmentCurrency"
+            app:destination="@id/fragmentCurrency" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRate"
+        android:name="com.example.hamiltoncapital.fragment.FragmentRate"
+        android:label="fragment_rate"
+        tools:layout="@layout/fragment_rate" >
+        <action
+            android:id="@+id/action_fragmentRate_to_fragmentCurrency"
+            app:destination="@id/fragmentCurrency" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSuccess"
+        android:name="com.example.hamiltoncapital.fragment.FragmentSuccess"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_fragmentSuccess_to_fragmentRate"
+            app:destination="@id/fragmentRate" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCurrency"
+        android:name="com.example.hamiltoncapital.fragment.FragmentCurrency"
+        android:label="fragment_currency"
+        tools:layout="@layout/fragment_currency" >
+        <action
+            android:id="@+id/action_fragmentCurrency_to_fragmentApproval"
+            app:destination="@id/fragmentApproval" />
+        <argument
+            android:name="curreny1name"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="currency2name"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="currency1Rate"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="cureency2Rate"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="addedCurrency"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_fragmentCurrency_to_fragmentRate"
+            app:destination="@id/fragmentRate" />
+    </fragment>
+</navigation>
